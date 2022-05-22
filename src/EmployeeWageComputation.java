@@ -9,24 +9,34 @@ public class EmployeeWageComputation {
 		int fullDayHour = 8;
 		int halfDayHour = 4;
 		int wagePerDay = 0;
+		int monthlySalary = 0;
+		int days = 1;
 
 		Random random = new Random();
-		int attendance = random.nextInt(3);
 
-		switch (attendance) {
-		case 0:
-			System.out.println("Employee is absent.");
-			break;
-		case 1:
-			System.out.println("Employee is present half time. ");
-			wagePerDay = wagePerHour * halfDayHour;
-			break;
-		default:
-			System.out.println("Employee is present full time.");
-			wagePerDay = wagePerHour * fullDayHour;
+		while (days <= 20) {
+			int attendance = random.nextInt(3);
+
+			switch (attendance) {
+			case 0:
+				System.out.println("Employee Absent.");
+				wagePerDay = 0;
+				break;
+
+			case 1:
+				System.out.println("Employee Present Part Time.");
+				wagePerDay = halfDayHour * wagePerHour;
+				break;
+
+			default:
+				System.out.println("Employee Present Full Time.");
+				wagePerDay = fullDayHour * wagePerHour;
+
+			}
+			monthlySalary = monthlySalary + wagePerDay;
+			days++;
 		}
-		System.out.println("Daily salary of employee is:" + wagePerDay);
-
+		System.out.println("Monthly Salary is: " + monthlySalary);
 	}
 
 }
