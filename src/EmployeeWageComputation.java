@@ -13,15 +13,18 @@ public class EmployeeWageComputation {
 		Random random = new Random();
 		int attendance = random.nextInt(3);
 
-		if (attendance == 2) {
-			System.out.println("Employee is present full time.");
-			wagePerDay = wagePerHour * fullDayHour;
-		} else if (attendance == 1) {
+		switch (attendance) {
+		case 0:
+			System.out.println("Employee is absent.");
+			break;
+		case 1:
 			System.out.println("Employee is present half time. ");
 			wagePerDay = wagePerHour * halfDayHour;
-		} else
-			System.out.println("Employee is absent.");
-
+			break;
+		default:
+			System.out.println("Employee is present full time.");
+			wagePerDay = wagePerHour * fullDayHour;
+		}
 		System.out.println("Daily salary of employee is:" + wagePerDay);
 
 	}
